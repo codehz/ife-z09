@@ -684,15 +684,60 @@ nav .list > .item.opened > .title > img.arrow {
 }
 #b3 {
   flex: 4 0 30%;
+  font-size: 12px;
 }
 #b3 .selectline {
   padding: 10px 0;
-  margin: 0 30px;
+  margin: -5px 20px;
   display: flex;
   border-bottom: #a9cfec 1px solid;
 }
-#b3 .selectline * {
+#b3 .selectline > * {
+  border: #cdcece solid 1px;
+  text-align: center;
+  margin: 5px;
+  height: 20px;
+  font-size: 11px;
+}
+#b3 .selectline .select {
   flex: 1;
+  position: relative;
+  display: flex;
+  background: url("sep.png") right 15px center no-repeat;
+}
+#b3 .selectline .select select {
+  flex: 1;
+  border: none;
+  padding: 0 5px;
+  -webkit-appearance: none;
+  background: url("drop2.png") right 5px center no-repeat;
+  text-align: center;
+}
+#b3 .selectline .select.month::before {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  background: url("left.png") left 5px center no-repeat;
+}
+#b3 .selectline .select.month::after {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  background: url("right.png") right 5px center no-repeat;
+}
+#b3 .selectline .select.month select {
+  flex: 1;
+  margin: 0 16px;
+}
+#b3 .selectline .white-button {
+  line-height: 20px;
+  padding: 0 20px;
 }
 #b3 .cont {
   margin: 0 30px;

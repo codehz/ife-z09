@@ -558,13 +558,53 @@ nav
           background: url(checkbox_tick.png) left 2px center no-repeat, url(checkbox_bg.png) left center no-repeat;
 #b3
   flex: 4 0 30%;
+  font-size: 12px;
   .selectline
     padding: 10px 0;
-    margin: 0 30px;
+    margin: -5px 20px;
     display:flex;
     border-bottom: #a9cfec 1px solid;
-    *
+    > *
+      border: #cdcece solid 1px;
+      text-align: center;
+      margin: 5px;
+      height: 20px;
+      font-size: 11px;
+    .select
       flex: 1;
+      position: relative;
+      display: flex;
+      background: url(sep.png) right 15px center no-repeat;
+      select
+        flex: 1;
+        border: none;
+        padding: 0 5px;
+        -webkit-appearance: none;
+        background: url(drop2.png) right 5px center no-repeat;
+        text-align: center;
+      &.month
+        &::before
+          position: absolute;
+          right: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          content: "";
+          background: url(left.png) left 5px center no-repeat;
+        &::after
+          position: absolute;
+          right: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          content: "";
+          background: url(right.png) right 5px center no-repeat;
+        select
+          flex: 1;
+          margin: 0 16px;
+    .white-button
+      line-height:20px;
+      padding: 0 20px;
   .cont
     margin: 0 30px;
     font-size: 11px;
