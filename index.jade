@@ -1,0 +1,255 @@
+doctype html
+head
+  meta(charset="utf-8")
+  title 复杂页面
+  link(rel="stylesheet", href="index.css", charset="utf-8")
+  
+body
+  header
+    img(src="logo.png", alt="logo")
+    input.searchbar
+    span.login
+      img(src="login_icon.png", alt="logo")
+      span 登录
+  .container
+    nav
+      .user
+        .icon-and-name
+          .icon
+            img.inner(src="user_icon.png", alt="user_icon")
+          span.name ABC123
+        .info
+          div
+            div 110
+            div 收藏
+          div
+            div 313
+            div 粉丝
+      .list
+        .item.opened
+          .title
+            img(src="menu1.png", alt="个人报表")
+            span 个人报表
+          .list
+            .item
+              .title
+                img.arrow(src="menu7.png", alt="文件一")
+                img(src="menu5.png", alt="文件一")
+                span 文件一
+            .item.opened
+              .title
+                img.arrow(src="menu7.png", alt="文件二")
+                img(src="menu5.png", alt="文件二")
+                span 文件二
+              .list
+                .item.opened
+                  .title
+                    img(src="menu6.png", alt="文档1")
+                    span 文档1
+                .item
+                  .title
+                    img(src="menu6.png", alt="文档2")
+                    span 文档2
+            .item
+              .title
+                img.arrow(src="menu7.png", alt="文件三")
+                img(src="menu5.png", alt="文件三")
+                span 文件三
+        .item
+          .title
+            img(src="menu2.png", alt="个人收藏")
+            span 个人收藏
+        .item
+          .title
+            img(src="menu3.png", alt="我的分享")
+            span 我的分享
+        .item
+          .title
+            img(src="menu2.png", alt="图库")
+            span 图库
+        .item
+          .title
+            img(src="menu2.png", alt="成长记录")
+            span 成长记录
+        .item
+          .title
+            img(src="menu4.png", alt="账户信息")
+            span 账户信息
+    .content
+      .nav
+        a(href="#") C站
+        | /
+        a(href="#") 个人报表
+        | /
+        a(href="#") 文件一
+        | /
+        a(href="#") 文档1
+      .body
+        #block-1.box
+          #query-project
+            select(name="query").blue
+              option(selected) 第一项
+          #query-people
+            .col-container
+              .label-container(label="买方")
+                select(name="query-buy")
+                  option(selected) 小A
+              .label-container(label="卖方")
+                select(name="query-sell")
+                  option(selected) 小C
+            img(src="switchpeople.png", rel="交换")
+          #query-time
+            .label-container(label="买方")
+              select(name="query-date")
+                option(selected) 2016-04-01
+            .label-container(label="总耗时")
+              select(name="query-length")
+                option(selected) 8 天
+            .label-container(label="人数")
+              select(name="query-populate")
+                option(selected) 10 天
+            .label-container(label="成交项")
+              select(name="query-length")
+                option(selected) 10 项
+          .button
+            | 搜索
+        #block-2
+          .arrow.box
+            img(src="left-arrow.png")
+          .item.box.hightlight(time="8:00 am")
+            span 1200
+          .item.box(time="8:00 am")
+            span 1300
+          .item.box(time="8:10 am")
+            span 1400
+          .item.box(time="8:30 am")
+            span 1500
+          .item.box(time="10:00 am")
+            span 1600
+          .item.box(time="10:20 am")
+            span 1700
+          .arrow.box
+            img(src="right-arrow.png")
+          .history-query.box
+            img(src="calendar.png")
+            span 历史查询
+        #block-3
+          span 2016年4月份统计
+          .volume-list
+            .box.green
+              span 233333
+            .box.blue
+              span 233333
+            .box.red
+              span 233333
+            .box.yellow
+              span 233333
+        #block-4
+          .box#b1
+            .title 第一组项目
+            .tabs
+              each val in [1,2,3,4,5]
+                .tab
+                  if val == 1
+                    input(type="radio", name="tabs", id="tab"+val, checked)
+                  else
+                    input(type="radio", name="tabs", id="tab"+val)
+                  label(for="tab"+val) 项目#{val}
+                  .tab-content(id="tab-content"+val)
+                    table
+                      each i in [1,2,3,4,5]
+                        tr
+                          each j in [1,2,3,4,5]
+                            td dat-#{val}-#{i}-#{j}
+          .box#b2
+            .title 第一组项目
+            .form
+              .edit-title(label="标题")
+                input(value="项目报表三")
+              .price-and-principal
+                .price(label="价格")
+                  input(value="158")
+                .principal(label="负责人")
+                  input(value="小A")
+              .details(label="详细描述")
+                textarea 该项目目前负责人是......
+              .bar
+                .checkbox
+                  input#ca(type="checkbox", name="ConfidentialityAgreement", checked)
+                  label(for="ca") 遵守保密协议
+                .button 搜索
+          .box#b3
+            .title 日历
+            .selectline
+              select
+                option.selected 2016年
+              select
+                option.selected 4月
+              select
+                option.selected 标注日期
+              .white-button 返回今天
+            .cont
+              .day
+                each d in ['一','二','三','四','五','六','日']
+                  span= d
+              .date
+                - var offset = 4;
+                - var off = offset;
+                - var redarr = [0,4];
+                - var borderarr = [8,11,18];
+                while off--
+                  .block= ""
+                each fav,index in ['愚人节','廿五','廿六','廿七','清明','廿九','三月','初二','初三','初四','初五','初六','初七','初八','初九','初十','十一','十二','十三','十四','十五','十六','十七','十八','十九','廿十','廿一','廿二','廿三','廿四']
+                  .block(date=index, fav=fav, red=(redarr.indexOf(index) >= 0 ? 'red' : ''), border=(borderarr.indexOf(index) >= 0 ? 'border' : ''), holiday=((index + offset) % 7 >= 5 ? 'holiday' : ''))
+                .block= ""
+          .box#b4
+            .title 汽车行业品牌榜
+            table
+              thead
+                tr
+                  td 排名
+                  td 品牌
+                  td 搜索指数
+              tbody
+                tr
+                  td 1
+                  td 大众
+                  td.value
+                    | 233333
+                    .line-box
+                      .line(style="width:70%;background: #ec6d51")
+                tr
+                  td 2
+                  td 大众
+                  td.value
+                    | 233333
+                    .line-box
+                      .line(style="width:60%;background: #ef8150")
+                tr
+                  td 3
+                  td 大众
+                  td.value
+                    | 233333
+                    .line-box
+                      .line(style="width:55%; background: #f19f4f")
+                tr
+                  td 4
+                  td 大众
+                  td.value
+                    | 233333
+                    .line-box
+                      .line(style="width:40%")
+                tr
+                  td 5
+                  td 大众
+                  td.value
+                    | 233333
+                    .line-box
+                      .line(style="width:30%")
+                tr
+                  td 6
+                  td 大众
+                  td.value
+                    | 233333
+                    .line-box
+                      .line(style="width:30%")
